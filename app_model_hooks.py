@@ -20,6 +20,13 @@ app.config['DEBUG'] = True
 def hello():
     return "Bienvenido a mi API del modelo advertising"
 
+
+@app.route('/api/v1/test', methods=['GET'])
+def hello():
+    return """
+    <h1>El Webhook está funcionando"</h1>
+    """
+
 # Enruta la funcion al endpoint /api/v1/predict
 
 @app.route('/api/v1/predict', methods=['GET'])
