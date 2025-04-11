@@ -22,7 +22,7 @@ def hello():
 
 
 @app.route('/api/v1/test', methods=['GET'])
-def hello():
+def api_test():
     return """
     <h1>El Webhook está funcionando"</h1>
     """
