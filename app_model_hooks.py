@@ -21,11 +21,11 @@ def hello():
     return "Bienvenido a mi API del modelo advertising"
 
 
-@app.route('/api/v1/test', methods=['GET'])
-def api_test():
-    return """
-    <h1>El Webhook está funcionando"</h1>
-    """
+# @app.route('/api/v1/test', methods=['GET'])
+# def api_test():
+#     return """
+#     <h1>El Webhook está funcionando"</h1>
+#     """
 
 # Con un comentario
 
