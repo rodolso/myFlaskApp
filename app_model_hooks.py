@@ -49,7 +49,7 @@ def predict(): # Ligado al endpoint '/api/v1/predict', con el método GET
     
     return jsonify({'predictions': prediction[0]})
 
-@app.route('/api/v1/retrain', methods=['GET'])
+@app.route('/api/v1/retrain/', methods=['GET'])
 # Enruta la funcion al endpoint /api/v1/retrain
 def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
     if os.path.exists(path_base + "data/Advertising_new.csv"):
