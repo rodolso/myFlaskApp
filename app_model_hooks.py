@@ -10,7 +10,7 @@ import subprocess
 
 # os.chdir(os.path.dirname(__file__))
 
-path_base = "/home/dsonlineli/Taller_Despliegue/"
+path_base = "/home/projectflaskito/myFlaskApp/"
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -58,7 +58,7 @@ def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
         model.fit(data.drop(columns=['sales']), data['sales'])
         pickle.dump(model, open(path_base + 'ad_model.pkl', 'wb'))
 
-        return f"Model retrained. New evaluation metric RMSE: {str(rmse)}, MAPE: {str(mape)}"
+        return f"Model retrained. New evaluation metric RMSE: {str(rmse)}, MAPE: {str(round(mape,2))}%"
     else:
         return f"<h2>New data for retrain NOT FOUND. Nothing done!</h2>"
     
@@ -66,8 +66,8 @@ def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
 @app.route('/webhook_2024', methods=['POST'])
 def webhook():
     # Ruta al repositorio donde se realizará el pull
-    path_repo = '/ruta/a/tu/repositorio/en/PythonAnywhere'
-    servidor_web = '/ruta/al/fichero/WSGI/de/configuracion' 
+    path_repo = '/home/projectflaskito/myFlaskApp' # Ruta a tu repositorio en PythonAnywhere
+    servidor_web = '/var/www/projectflaskito_pythonanywhere_com_wsgi.py' # Ruta al fichero WSGI de configuracion
 
     # Comprueba si la solicitud POST contiene datos JSON
     if request.is_json:
@@ -98,4 +98,4 @@ def webhook():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
