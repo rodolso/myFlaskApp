@@ -63,7 +63,7 @@ def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
         return f"<h2>New data for retrain NOT FOUND. Nothing done!</h2>"
     
 
-@app.route('/webhook_2024', methods=['POST'])
+@app.route('/webhook_2025', methods=['POST'])
 def webhook():
     # Ruta al repositorio donde se realizará el pull
     path_repo = '/home/projectflaskito/myFlaskApp' # Ruta a tu repositorio en PythonAnywhere
